@@ -32,14 +32,14 @@ CREATE TABLE IF NOT EXISTS comentarios (
     ON UPDATE CASCADE
 );
 
-CREATE INDEX idx_pedidos_id_producto
+CREATE INDEX IF NOT EXISTS idx_pedidos_id_producto
   ON pedidos (id_producto);
 
-CREATE INDEX idx_pedidos_id_consumidor
+CREATE INDEX IF NOT EXISTS idx_pedidos_id_consumidor
   ON pedidos (id_consumidor);
 
-CREATE INDEX idx_comentarios_id_producto
+CREATE INDEX IF NOT EXISTS idx_comentarios_id_producto
   ON comentarios (id_producto);
 
-CREATE INDEX idx_comentarios_id_usuario
+CREATE INDEX IF NOT EXISTS idx_comentarios_id_usuario
   ON comentarios (id_usuario);

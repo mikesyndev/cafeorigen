@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS productos (
     ON UPDATE CASCADE
 );
 
-CREATE INDEX idx_fincas_id_usuario
+CREATE INDEX IF NOT EXISTS idx_fincas_id_usuario
   ON fincas (id_usuario);
 
-CREATE INDEX idx_productos_id_finca
+CREATE INDEX IF NOT EXISTS idx_productos_id_finca
   ON productos (id_finca);

@@ -11,8 +11,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(100% 0.00011 271.152);
+  --primary-foreground: oklch(0% 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -36,6 +36,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --surface-color: oklch(0.7817 0.0247 343.1);
+  --surface-color-foreground: oklch(0% 0 0);
 }
 
 @theme inline {
@@ -76,12 +78,14 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-surface-color: var(--surface-color);
+  --color-surface-color-foreground: var(--surface-color-foreground);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000000;
   }
 }
 
@@ -93,7 +97,7 @@ body {
 
 .dark {
   --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --foreground: oklch(98.511% 0.00011 271.152);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -123,6 +127,7 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --surface-color: oklch(21.178% 0.15369 29.124);
 }
 
 @layer base {
@@ -132,4 +137,32 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.fondo {
+  position: relative;
+  overflow: hidden;
+}
+
+.fondo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/el-cafe-adulto-cosechando.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  transform: scale(1.1);
+}
+
+.clip-diagonal {
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.strip-top {
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.strip-bottom {
+  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
 }

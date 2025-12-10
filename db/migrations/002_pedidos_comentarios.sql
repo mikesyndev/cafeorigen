@@ -1,6 +1,6 @@
 PRAGMA foreign_keys = ON;
 
-CREATE TABLE pedidos (
+CREATE TABLE IF NOT EXISTS pedidos (
   id_pedido     INTEGER PRIMARY KEY AUTOINCREMENT,
   id_producto   INTEGER NOT NULL,
   id_consumidor INTEGER NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE pedidos (
     ON UPDATE CASCADE
 );
 
-CREATE TABLE comentarios (
+CREATE TABLE IF NOT EXISTS comentarios (
   id_comentario INTEGER PRIMARY KEY AUTOINCREMENT,
   id_producto   INTEGER NOT NULL,
   id_usuario    INTEGER NOT NULL,

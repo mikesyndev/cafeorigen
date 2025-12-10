@@ -1,6 +1,6 @@
 PRAGMA foreign_keys = ON;
 
-CREATE TABLE usuarios (
+CREATE TABLE IF NOT EXISTS usuarios (
   id_usuario     INTEGER PRIMARY KEY AUTOINCREMENT,
   nombre         VARCHAR(100) NOT NULL,
   correo         VARCHAR(100) NOT NULL UNIQUE,
@@ -8,7 +8,7 @@ CREATE TABLE usuarios (
   password_hash  VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE fincas (
+CREATE TABLE IF NOT EXISTS fincas (
   id_finca    INTEGER PRIMARY KEY AUTOINCREMENT,
   id_usuario  INTEGER NOT NULL,
   nombre      VARCHAR(100) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE fincas (
     ON UPDATE CASCADE
 );
 
-CREATE TABLE productos (
+CREATE TABLE IF NOT EXISTS productos (
   id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
   id_finca    INTEGER NOT NULL,
   nombre      VARCHAR(100) NOT NULL,

@@ -13,6 +13,13 @@ export type UserRow = {
     password: string; 
 };
 
+type DbUserRow = {
+    id_usuario: number;
+    nombre: string;
+    rol: string;
+    password_hash: string;
+};
+
 export async function createUser({
     nombre,
     correo,
@@ -41,7 +48,7 @@ export async function login({
     const db = getDb();
 
     return new Promise((resolve, reject) => {
-        db.get(
+        db.get<DbUserRow>(
         `SELECT id_usuario, nombre, rol, password_hash 
         FROM usuarios 
         WHERE correo = ?`,
